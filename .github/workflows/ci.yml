@@ -36,7 +36,7 @@ jobs:
 
     - name: Install cibuildwheel
       run: |
-        python -m pip install cibuildwheel==1.5.2
+        python -m pip install cibuildwheel==2.2.2
 
     - name: Build wheel
       run: |
@@ -44,7 +44,7 @@ jobs:
       env:
         # The packaged FreeType library is independent of the Python ABI so we only
         # need to build it once.
-        CIBW_BUILD: "cp36-*x86_64 cp36-*amd64"
+        CIBW_BUILD: "cp36-*x86_64 cp36-*amd64 cp36-*arm64"
         CIBW_ENVIRONMENT: "FREETYPEPY_BUNDLE_FT=yes PYTHON_ARCH=64"
         CIBW_MANYLINUX_X86_64_IMAGE: manylinux1
         CIBW_TEST_COMMAND: "pytest {project}/tests"
