@@ -42,7 +42,6 @@ jobs:
         # need to build it once.
         CIBW_BUILD: "cp39-*"
         CIBW_ARCHS: "auto64"
-        CIBW_ARCHS_LINUX: "auto64 aarch64"
         CIBW_ARCHS_MACOS: "auto64 universal2 arm64"
         CIBW_ENVIRONMENT: "FREETYPEPY_BUNDLE_FT=yes PYTHON_ARCH=64"
         CIBW_MANYLINUX_X86_64_IMAGE: manylinux1
