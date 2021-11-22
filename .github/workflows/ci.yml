@@ -29,10 +29,11 @@ jobs:
       uses: microsoft/setup-msbuild@v1.0.2
       if: matrix.os == 'windows-latest'
 
-    - uses: actions/setup-python@v1
-      name: Install Python
+    - name: Set up QEMU
+      if: matrix.os == 'ubuntu-latest'
+      uses: docker/setup-qemu-action@v1
       with:
-        python-version: '3.9'
+        platforms: all
 
     - name: Build wheels
       uses: pypa/cibuildwheel@v2.2.2
@@ -54,6 +55,11 @@ jobs:
       with:
         name: freetype-py-dist
         path: dist/*.whl
+
+    - uses: actions/setup-python@v1
+      name: Install Python
+      with:
+        python-version: '3.9'
 
     # Build sdist on one platform, and only on tagged commits.
     - name: Build sdist
