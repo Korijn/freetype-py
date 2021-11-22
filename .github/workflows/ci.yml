@@ -45,9 +45,6 @@ jobs:
         CIBW_ARCHS_MACOS: "auto64 universal2 arm64"
         CIBW_ENVIRONMENT: "FREETYPEPY_BUNDLE_FT=yes PYTHON_ARCH=64"
         CIBW_MANYLINUX_X86_64_IMAGE: manylinux1
-        CIBW_MANYLINUX_AARCH64_IMAGE: manylinux2014
-        CIBW_MUSLLINUX_X86_64_IMAGE: musllinux_1_1
-        CIBW_MUSLLINUX_AARCH64_IMAGE: musllinux_1_1
         CIBW_TEST_COMMAND: "pytest {project}/tests"
         CIBW_TEST_REQUIRES: "pytest"
       with:
