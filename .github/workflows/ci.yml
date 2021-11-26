@@ -26,9 +26,11 @@ jobs:
         - os: macos-latest
           cibw_build: "cp36-*"
         - os: macos-latest
-          cibw_build: "cp38-macosx_universal2 cp38-macosx_arm64"
-          name: '(arm64 and universal2)'
-
+          cibw_build: "cp38-macosx_arm64"
+          name: '(arm64)'
+        - os: macos-latest
+          cibw_build: "cp38-macosx_universal2"
+          name: '(universal2)'
     steps:
     - uses: actions/checkout@v2
       with:
